@@ -1,0 +1,2 @@
+#!/bin/bash
+[ $(df -h . | awk 'NR==2 {print int($5)}') -gt $1 ] && wall -n "Warning: $(findmnt --target . | awk 'NR>1 {print $2}') space usage is $(df -h . | awk 'NR==2 {print $5}')." # usage: disk_usage_warning.sh <threshold 1-100>
